@@ -4,13 +4,13 @@ MesgBox - Perl/Tk module for message and button dialogue boxes.
 
 =head1 SYNOPSIS
 
-    use MesgBox ; 
+    use MesgBox; 
 
     # Example 1: an 'OK' box.
     # Pressing <Space>, <Return>, <o>, <Control-o> or <Alt-o> will close the box.
 
-    my $msg = $Window->MesgBox( -title => 'Test', -text => 'Test Complete.' ) ;
-    $msg->Show ;
+    my $msg = $Window->MesgBox(-title => 'Test', -text => 'Test Complete.');
+    $msg->Show;
 
     # Example 2: a 'Yes/No' box.
     # Pressing <Space>, <Return>, <y>, <Control-y> or <Alt-y> 
@@ -21,11 +21,11 @@ MesgBox - Perl/Tk module for message and button dialogue boxes.
         -title     => 'Save File?',
         -text      => "Save '$filename'?",
         -icon      => 'QUESTION',
-        -buttons   => [ 'Yes', 'No' ],
+        -buttons   => ['Yes', 'No'],
         -defbutton => 'Yes',
-        ) ;
-    my $ans = $msg->Show ;
-    &save_file if $ans eq 'Yes' ;
+        );
+    my $ans = $msg->Show;
+    &save_file if $ans eq 'Yes';
 
     # Example 3: an 'OK/Cancel' box.
     # Pressing <Space>, <Return>, <o>, <Control-o> or <Alt-o> presses the 'OK'
@@ -36,10 +36,10 @@ MesgBox - Perl/Tk module for message and button dialogue boxes.
     my $msg = $Window->MesgBox(
         -title   => 'Print',
         -text    => 'Print the page',
-        -buttons => [ 'OK', 'Cancel' ],
-        ) ;
-    my $ans = $msg->Show ;
-    &print if $ans eq 'OK' ;
+        -buttons => ['OK', 'Cancel'],
+        );
+    my $ans = $msg->Show;
+    &print if $ans eq 'OK';
 
 =head1 DESCRIPTION
 
@@ -89,6 +89,12 @@ shorter.
 C<-justify> sets the justification for the C<-text> - may be 'center', 'left'
 or 'right'. Defaults to 'center'.
 
+C<-textfg> sets the foreground colour for the C<-text>; default is black.
+
+C<-textbg> sets the background colour for the C<-text>; default is lightgrey.
+
+C<-buttonfont> sets the font for the button; default is 12pt Helvetica.
+
 C<-bindctrl> sets the keyboard bindings to include <Control-$letter>, defaults
 to true.
 
@@ -97,6 +103,19 @@ to true.
 
 C<-bindord> sets the keyboard bindings to include <$letter>, defaults
 to true.
+
+C<-buttonpadx> sets the left and right padding around the button, defaults to
+0.
+
+C<-buttonpady> sets the above and below padding around the button, defaults to
+0.
+
+C<-buttonfg> sets the button foreground colour, defaults to black.
+
+C<-buttonbg> sets the button foreground colour, defaults to lightgrey.
+
+C<-buttonHL> sets the button highlight colour, defaults to lightgrey.
+
 
 =head1 INSTALLATION
 
@@ -128,6 +147,9 @@ MesgBox does almost no error checking.
 
 2000/05/05  Minor increment because I accidentally deleted it from CPAN.
 
+2000/09/16  Added new options to control colours and padding: almost all the
+            new code was supplied by Daniel Berger.
+
 =head1 AUTHOR
 
 Mark Summerfield. I can be contacted as <summer@perlpress.com> -
@@ -137,7 +159,7 @@ The code draws very heavily from Stephen O. Lidie's Dialog.pm module.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1999. All Rights Reserved.
+Copyright (c) Mark Summerfield 1999,2000. All Rights Reserved.
 
 This module may be used/distributed/modified under the LGPL. 
 
