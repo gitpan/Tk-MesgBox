@@ -119,6 +119,8 @@ MesgBox does almost no error checking.
 
 1999/08/05  Just changed the files to make them more CPAN friendly.
 
+1999/08/08  Changed licence to LGPL.
+
 =head1 AUTHOR
 
 Mark Summerfield. I can be contacted as <summer@chest.ac.uk> -
@@ -130,8 +132,7 @@ The code draws very heavily from Stephen O. Lidie's Dialog.pm module.
 
 Copyright (c) Mark Summerfield 1999. All Rights Reserved.
 
-This module may be used/distributed/modified under the same terms as Perl
-itself.
+This module may be used/distributed/modified under the LGPL. 
 
 =cut
 
