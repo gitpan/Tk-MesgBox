@@ -1,6 +1,6 @@
 package Tk::MesgBox ;    # Documented at the __END__.
 
-# $Id: MesgBox.pm,v 1.8 1999/10/01 20:11:46 root Exp root $
+# $Id: MesgBox.pm,v 1.10 2000/05/05 16:42:37 root Exp $
 
 require 5.004 ;
 
@@ -13,12 +13,11 @@ require Tk::Toplevel ;
 
 use vars qw( $VERSION @ISA ) ;
 
-$VERSION = '1.10' ;
+$VERSION = '1.11' ;
 
 @ISA = qw( Tk::Toplevel ) ;
 
 Construct Tk::Widget 'MesgBox' ;
-
 
 #############################
 sub Populate {
@@ -26,7 +25,7 @@ sub Populate {
 
     my %arg = (
         -title     => 'Message',
-        -text      => 'Press OK to continue.',
+        -text      => 'Press OK to continue...',
         -icon      => undef,
         -defbutton => 'OK',    
         -canbutton => '', # Usually 'Cancel'.
@@ -64,7 +63,6 @@ sub Populate {
     $win->{-selected_button} = '' ;
 }
 
-
 #############################
 sub Show {
     my $win = shift ;
@@ -83,7 +81,6 @@ sub Show {
 
     $win->{-selected_button} ;
 }
-
 
 #############################
 sub create_buttons {
@@ -110,7 +107,6 @@ sub create_buttons {
 
     $defbutton ;
 }
-
 
 #############################
 sub set_key_bindings {
@@ -139,7 +135,6 @@ sub set_key_bindings {
     if $arg{-canbutton} ; 
 }
 
-
 #############################
 sub create_text_frame {
     my $win = shift ;
@@ -161,7 +156,6 @@ sub create_text_frame {
         -aspect  => $arg{-aspect},
         )->pack( -padx => 5, -pady => 5, -fill => 'x', ) ;
 }
-
 
 #############################
 sub set_icon {
@@ -212,7 +206,6 @@ sub set_icon {
     }
 }
 
-
 #############################
 sub msg_close {
     # This strange hack is necessary because the first parameter is a
@@ -232,9 +225,7 @@ sub msg_close {
     $win->{-selected_button} = $button ;
 }
 
-
 1 ;
-
 
 __END__
 
@@ -366,10 +357,11 @@ MesgBox does almost no error checking.
 1999/10/01  Changed the Show() method so that it is now compatible with
             Tk800.015 as well as earlier Tk800 versions.
 
+2000/05/05  Minor increment because I accidentally deleted it from CPAN.
 
 =head1 AUTHOR
 
-Mark Summerfield. I can be contacted as <summer@chest.ac.uk> -
+Mark Summerfield. I can be contacted as <summer@perlpress.com> -
 please include the word 'mesgbox' in the subject line.
 
 The code draws very heavily from Stephen O. Lidie's Dialog.pm module.
@@ -381,5 +373,4 @@ Copyright (c) Mark Summerfield 1999. All Rights Reserved.
 This module may be used/distributed/modified under the LGPL. 
 
 =cut
-
 

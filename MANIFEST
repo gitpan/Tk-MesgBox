@@ -1,4 +1,5 @@
 MesgBox.pm
+t/mesgbox.t
 MANIFEST
 Makefile.PL
 README
