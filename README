@@ -46,7 +46,7 @@ MesgBox - Perl/Tk module for message and button dialogue boxes.
 This message box is similar to the MsgBox function provided with Windows. It
 provides a message text with an optional 'icon' and any buttons required. It
 is not as versatile as the Dialog box supplied with Tk but is simpler, and
-unlike Dialog it provides keyboard bindings.
+it provides automatic keyboard bindings.
 
 All options are optional, although defining a C<-title> and C<-text> is
 only sensible. Leaving out everything else will provide a simple OK button.
@@ -122,6 +122,10 @@ MesgBox does almost no error checking.
 1999/08/08  Changed licence to LGPL.
 
 1999/09/06  Minor change to packaging for CPAN.
+
+1999/10/01  Changed the Show() method so that it is now compatible with
+            Tk800.015 as well as earlier Tk800 versions.
+
 
 =head1 AUTHOR
 

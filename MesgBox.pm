@@ -1,6 +1,6 @@
 package Tk::MesgBox ;    # Documented at the __END__.
 
-# $Id: MesgBox.pm,v 1.6 1999/08/08 15:17:31 root Exp $
+# $Id: MesgBox.pm,v 1.8 1999/10/01 20:11:46 root Exp root $
 
 require 5.004 ;
 
@@ -13,7 +13,7 @@ require Tk::Toplevel ;
 
 use vars qw( $VERSION @ISA ) ;
 
-$VERSION = '1.08' ;
+$VERSION = '1.10' ;
 
 @ISA = qw( Tk::Toplevel ) ;
 
@@ -67,24 +67,9 @@ sub Populate {
 
 #############################
 sub Show {
-    my( $win, $grab_type ) = @_ ;
-
-    croak "MesgBox Show requires at least 1 argument" if scalar @_ < 1 ;
-
-    my $old_focus = $win->focusSave ;
-    my $old_grab  = $win->grabSave ;
+    my $win = shift ;
 
     $win->Popup() ; 
-
-    if( defined $grab_type and length $grab_type ) {
-        $win->grab( $grab_type ) ;
-    } else {
-        $win->grab ;
-    }
-
-    $win->waitVisibility ;
-
-    $win->update ;
 
     if( defined $win->{-default_button} ) {
         $win->{-default_button}->focus ;
@@ -94,12 +79,7 @@ sub Show {
     }
 
     $win->waitVariable( \$win->{-selected_button} ) ;
-
-    $win->grabRelease ;
     $win->withdraw ;
-
-    &$old_focus ;
-    &$old_grab ;
 
     $win->{-selected_button} ;
 }
@@ -306,7 +286,7 @@ MesgBox - Perl/Tk module for message and button dialogue boxes.
 This message box is similar to the MsgBox function provided with Windows. It
 provides a message text with an optional 'icon' and any buttons required. It
 is not as versatile as the Dialog box supplied with Tk but is simpler, and
-unlike Dialog it provides keyboard bindings.
+it provides automatic keyboard bindings.
 
 All options are optional, although defining a C<-title> and C<-text> is
 only sensible. Leaving out everything else will provide a simple OK button.
@@ -382,6 +362,10 @@ MesgBox does almost no error checking.
 1999/08/08  Changed licence to LGPL.
 
 1999/09/06  Minor change to packaging for CPAN.
+
+1999/10/01  Changed the Show() method so that it is now compatible with
+            Tk800.015 as well as earlier Tk800 versions.
+
 
 =head1 AUTHOR
 
