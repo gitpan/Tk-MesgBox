@@ -121,6 +121,8 @@ MesgBox does almost no error checking.
 
 1999/08/08  Changed licence to LGPL.
 
+1999/09/06  Minor change to packaging for CPAN.
+
 =head1 AUTHOR
 
 Mark Summerfield. I can be contacted as <summer@chest.ac.uk> -

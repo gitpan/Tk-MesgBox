@@ -9,7 +9,7 @@ WriteMakefile(
     'DISTNAME'     => 'TK-MesgBox',
     ($] >= 5.005 ?
         (
-            ABSTRACT => 'Simple Message box with automatic key bindings.',
+            ABSTRACT => 'Simple message dialogue box.',
             AUTHOR   => 'Mark Summerfield <summer@chest.ac.uk>',
         ) : () ),
     'LIBS'         => [''],   # e.g., '-lm'
